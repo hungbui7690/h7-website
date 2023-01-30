@@ -7,6 +7,7 @@ const app = express()
 
 // rest of the packages
 const morgan = require('morgan')
+const cookieParser = require('cookie-parser')
 
 // internal
 const connectDB = require('./db/connect')
@@ -19,6 +20,7 @@ const authRoutes = require('./routes/authRoutes')
 ///////////////////////////////////////////////////////
 
 app.use(express.json())
+app.use(cookieParser(process.env.JWT_SECRET))
 
 app.use('/api/v1/auth', authRoutes)
 
