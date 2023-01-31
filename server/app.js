@@ -8,6 +8,7 @@ const app = express()
 // rest of the packages
 const morgan = require('morgan')
 const cookieParser = require('cookie-parser')
+const path = require('path')
 
 // internal
 const connectDB = require('./db/connect')
@@ -15,16 +16,21 @@ const notFoundMiddleware = require('./middleware/not-found')
 const errorHandlerMiddleware = require('./middleware/error-handler')
 const authRoutes = require('./routes/authRoutes')
 const userRoutes = require('./routes/userRoutes')
+const uploadImageRoutes = require('./routes/uploadImage')
+const postRoutes = require('./routes/postRoutes')
 
 ///////////////////////////////////////////////////////
 // MIDDLEWARES & ROUTES
 ///////////////////////////////////////////////////////
 
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
 app.use(express.json())
 app.use(cookieParser(process.env.JWT_SECRET))
 
 app.use('/api/v1/auth', authRoutes)
 app.use('/api/v1/users', userRoutes)
+app.use('/api/v1/upload', uploadImageRoutes)
+app.use('/api/v1/posts', postRoutes)
 
 app.use(notFoundMiddleware)
 app.use(errorHandlerMiddleware)
