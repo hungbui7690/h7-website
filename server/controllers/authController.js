@@ -1,8 +1,7 @@
 const { StatusCodes } = require('http-status-codes')
 const CustomError = require('../errors')
 const User = require('../models/User')
-const { createTokenUser } = require('../utils/createTokenUser')
-const { createJWT, attachCookiesToResponse } = require('../utils/jwt')
+const { attachCookiesToResponse, createTokenUser } = require('../utils')
 
 //////////////////////////////////////////////////
 const register = async (req, res) => {
@@ -39,11 +38,11 @@ const register = async (req, res) => {
 //////////////////////////////////////////////////
 const login = async (req, res) => {
   // get input
-  const { username, password } = req.body
+  const { username, email, password } = req.body
 
   // check empty
   if (!username || !password)
-    throw new CustomError.BadRequestError('Please provide email & password')
+    throw new CustomError.BadRequestError('Please provide username & password')
 
   // find user by username
   const user = await User.findOne({ username })
