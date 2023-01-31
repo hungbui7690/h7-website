@@ -23,7 +23,7 @@ const register = async (req, res) => {
   const role = isFirstAccount ? 'admin' : 'user'
 
   // create user
-  const user = await User.create({ username, email, passwd, role })
+  const user = await User.create({ username, email, password: passwd, role })
   const tokenUser = createTokenUser(user)
 
   // attach token to cookie
@@ -38,11 +38,41 @@ const register = async (req, res) => {
 
 //////////////////////////////////////////////////
 const login = async (req, res) => {
-  res.status(StatusCodes.OK).json('Login')
+  // get input
+  const { username, password } = req.body
+
+  // check empty
+  if (!username || !password)
+    throw new CustomError.BadRequestError('Please provide email & password')
+
+  // find user by username
+  const user = await User.findOne({ username })
+
+  // return error if user not found
+  if (!user) {
+    throw new CustomError.UnauthenticatedError('Invalid Credentials')
+  }
+
+  // return error if password is not correct
+  const isPasswordCorrect = await user.comparePassword(password)
+  if (!isPasswordCorrect) {
+    throw new CustomError.UnauthenticatedError('Invalid Credentials')
+  }
+
+  // attach token to cookie
+  const tokenUser = createTokenUser(user)
+  attachCookiesToResponse({ res, user: tokenUser })
+
+  // send back response
+  res.status(StatusCodes.OK).json({ user: tokenUser })
 }
 
 //////////////////////////////////////////////////
 const logout = async (req, res) => {
+  res.cookie('token', 'logout', {
+    httpOnly: true,
+    expires: new Date(Date.now()),
+  })
   res.status(StatusCodes.OK).json('Logout')
 }
 
