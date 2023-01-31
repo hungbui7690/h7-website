@@ -6,9 +6,12 @@ const multer = require('multer')
 
 // rename file for multer
 const storage = multer.diskStorage({
+  // destination of the image after uploaded
   destination: function (req, file, cb) {
     cb(null, 'uploads/')
   },
+
+  // generate new file name
   filename: function (req, file, cb) {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9)
     const extension = file.originalname.split('.')[1]
@@ -41,7 +44,7 @@ const uploadImage = (req, res, next) => {
     }
 
     console.log(req.file)
-    res.status(StatusCodes.OK).json(req.file)
+    res.status(StatusCodes.OK).json(req.file.path)
   })
 }
 

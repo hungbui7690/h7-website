@@ -27,6 +27,10 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
 app.use(express.json())
 app.use(cookieParser(process.env.JWT_SECRET))
 
+app.get('/', (req, res) => {
+  res.send(`<h1>My Website API</h1>`)
+})
+
 app.use('/api/v1/auth', authRoutes)
 app.use('/api/v1/users', userRoutes)
 app.use('/api/v1/upload', uploadImageRoutes)
