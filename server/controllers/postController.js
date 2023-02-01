@@ -7,12 +7,12 @@ const Post = require('../models/Post')
 /////////////////////////////////////////////////////////
 const createPost = async (req, res) => {
   // get input
-  const { title, image, content, tags } = req.body
+  const { type, title, image, content, tags } = req.body
 
   // check empty fields
-  if (!title || !image || !content || !tags)
+  if (!title || !image || !content || !tags || !type)
     throw new CustomError.BadRequestError(
-      'Please provide title, thumbnail content & tags of the Post'
+      'Please provide type, title, thumbnail content & tags of the Post'
     )
 
   // create post
