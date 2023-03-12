@@ -1,14 +1,34 @@
-import { Link, Outlet, useOutletContext } from 'react-router-dom'
-import Navbar from '../components/Navbar'
-import { useEffect, useState } from 'react'
+import { useOutletContext } from 'react-router-dom'
 import Intro from './Intro'
 import styled from 'styled-components'
+import { FeaturedProjects, Hero, Sidebar } from '../components/'
+import { useAppContext } from '../context'
 
 const Home = () => {
-  const isIntro = useOutletContext()
+  const showIntro = useOutletContext()
+  const { showSidebar } = useAppContext()
 
-  if (isIntro) return <Intro />
+  if (showIntro) return <Intro />
 
-  return !isIntro && <div>Homepage</div>
+  return (
+    !showIntro && (
+      <Wrapper>
+        <Hero />
+        {showSidebar && <Sidebar />}
+        <FeaturedProjects />
+      </Wrapper>
+    )
+  )
 }
+
+const Wrapper = styled.section`
+  width: 100%;
+  max-width: var(--max-width);
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+
 export default Home
