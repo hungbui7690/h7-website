@@ -20,7 +20,7 @@ const uploadImageRoutes = require('./routes/uploadImage')
 const postRoutes = require('./routes/postRoutes')
 
 ///////////////////////////////////////////////////////
-// MIDDLEWARES & ROUTES
+// MIDDLEWARE & ROUTES
 ///////////////////////////////////////////////////////
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')))

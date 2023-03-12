@@ -19,6 +19,13 @@ html {
 :root {
   /* colors */
   --primary-x: #31e8ff;
+  --primary-x-trans: rgba(49, 232, 255, 0.3);
+  --primary-x1: #27bacc;
+  --primary-x2: #22a2b3;
+  --primary-x3: #1d8b99;
+  --primary-x4: #145d66;
+  --primary-x5: #0a2e33;
+  --primary-x5-trans: rgba(10, 46, 51, 0.5);
   --primary-50: #e9ebf3;
   --primary-100: #d2d8e8;
   --primary-200: #a5b0d0;
@@ -79,12 +86,100 @@ html {
     0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  height: 30px;
+  background: #888;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 body {
+  position: relative;
   background: var(--backgroundColor);
   font-family: var(--bodyFont);
   font-weight: 400;
   line-height: 1.75;
   color: var(--textColor);
+  display: flex;
+  justify-content: center;
+  overflow-x: hidden;
+}
+/* 
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  right: 20px;
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(#2196f3, #31ff38);
+  transform: translate(50%, 350%);
+  border-radius: 50%;
+  z-index: -999;
+}
+body::after {
+  content: '';
+  position: fixed;
+  top: 0px;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(#ffc107, #e91e63);
+  transform: translate(-50%, 40%);
+  border-radius: 50%;
+  z-index: -999;
+} */
+
+@media screen and (min-width: 640px) {
+  body::before {
+    width: 200px;
+    height: 200px;
+    transform: translate(50%, 170%);
+    border-radius: 10%;
+  }
+  body::after {
+    width: 150px;
+    height: 150px;
+    transform: translate(-50%, 40%);
+    border-radius: 50%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  body::before {
+    width: 250px;
+    height: 250px;
+    transform: translate(50%, 170%);
+    border-radius: 10%;
+  }
+  body::after {
+    width: 200px;
+    height: 200px;
+    transform: translate(-50%, 40%);
+    border-radius: 50%;
+  }
+}
+@media screen and (min-width: 992px) {
+  body::before {
+    width: 350px;
+    height: 350px;
+    transform: translate(30%, 170%);
+    border-radius: 10%;
+  }
+  body::after {
+    width: 300px;
+    height: 300px;
+    transform: translate(-10%, 40%);
+    border-radius: 50%;
+  }
 }
 
 p {
@@ -302,8 +397,6 @@ ul {
 .container {
   width: var(--fluid-width);
   max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 2rem;
 }
 .full-page {
   min-height: 100vh;

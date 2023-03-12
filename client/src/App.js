@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { SharedLayout, Home, Contact, Projects, Error, Intro } from './pages'
+import { SharedLayout, Home, Contact, Projects, Error } from './pages'
 import 'normalize.css'
 import './index.css'
 

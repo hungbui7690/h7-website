@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import IntroIcon from '../components/IntroIcon'
 
@@ -42,7 +40,7 @@ const Wrapper = styled.section`
     width: 2px;
     height: 100%;
     background-color: red;
-    animation: blink-cursor 0.8s steps(3) infinite;
+    animation: blink-cursor 1s steps(3) infinite;
   }
 
   @keyframes blink-cursor {
