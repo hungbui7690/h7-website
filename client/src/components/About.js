@@ -40,6 +40,7 @@ const About = () => {
 const Wrapper = styled.section`
   min-height: 100vh;
   position: relative;
+  margin-bottom: 10rem;
 
   .content {
     display: flex;

@@ -76,6 +76,7 @@ const Wrapper = styled.section`
     background: var(--primary-x1);
     border: 1px solid var(--primary-x1);
     border-radius: 2px;
+    font-size: 0.8rem;
   }
   .resume-btn:hover {
     background: none;
