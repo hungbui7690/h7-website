@@ -88,6 +88,7 @@ const Wrapper = styled.section`
   .container {
     position: relative;
     overflow-x: hidden;
+    min-height: 100vh;
   }
   .icon {
     font-size: 1.2rem;
@@ -121,7 +122,7 @@ const Wrapper = styled.section`
     transition: transform 0.2s ease-in-out;
   }
   .icon:hover {
-    transform: translateX(-20%);
+    transform: translateY(-20%);
     color: var(--primary-x1);
   }
 

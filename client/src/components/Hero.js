@@ -1,7 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
+import { CgChevronDoubleDownR } from 'react-icons/cg'
+import { useAppContext } from '../context'
 
 const Hero = () => {
+  const { scrollToSection, aboutRef } = useAppContext()
+
   return (
     <Wrapper>
       <div className='section'>
@@ -18,6 +22,10 @@ const Hero = () => {
         <button className='resume-btn translate-up' style={{ '--i': 4 }}>
           View my Resume
         </button>
+        <CgChevronDoubleDownR
+          className='down-icon'
+          onClick={() => scrollToSection(aboutRef)}
+        />
       </div>
     </Wrapper>
   )
@@ -25,15 +33,25 @@ const Hero = () => {
 
 const Wrapper = styled.section`
   width: 100%;
-  min-height: calc(100vh - 5rem);
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 
   .section {
-    max-width: 60vw;
+    max-width: 50vw;
     color: white;
     /* animation: animate-section 5s linear forward; */
+  }
+
+  .down-icon {
+    position: absolute;
+    left: 50%;
+    bottom: 100px;
+    color: var(--primary-x3);
+    cursor: pointer;
+    font-size: 2rem;
   }
 
   p,
@@ -69,6 +87,22 @@ const Wrapper = styled.section`
     transform: translateY(100%);
     animation: animate-info 1s ease-in-out calc(0.2s * var(--i)) forwards;
   }
+
+  ///////////////////////////////////////
+
+  @media (min-width: 576px) {
+    .section {
+      max-width: 70vw;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .section {
+      max-width: 70vw;
+    }
+  }
+
+  ///////////////////////////////////////
 
   @keyframes animate-info {
     0% {

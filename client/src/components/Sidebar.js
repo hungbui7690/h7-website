@@ -144,7 +144,6 @@ const Wrapper = styled.section`
       gap: 2rem;
     }
   }
-
   @media (min-width: 576px) {
     display: none;
   }

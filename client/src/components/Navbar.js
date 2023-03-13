@@ -5,21 +5,36 @@ import { CgCloseR } from 'react-icons/cg'
 import { useAppContext } from '../context'
 
 const Navbar = () => {
-  const { showSidebar, setShowSidebar } = useAppContext()
+  const { showSidebar, setShowSidebar, scrollToSection, aboutRef, heroRef } =
+    useAppContext()
 
   return (
     <Wrapper>
       <nav>
         <div className='logo'>
-          <Link to={'/'} className='logo-link'>
+          <Link
+            to={'/'}
+            className='logo-link'
+            onClick={() => scrollToSection(heroRef)}
+          >
             <img src={logo} alt='' className='logo-img' />
           </Link>
         </div>
         <ul className='nav-links' style={{ '--i': 1 }}>
-          <Link to={'/'} style={{ '--i': 3 }} className='link'>
+          <Link
+            to={'/'}
+            style={{ '--i': 3 }}
+            className='link'
+            onClick={() => scrollToSection(heroRef)}
+          >
             Home
           </Link>
-          <Link to={'/about'} style={{ '--i': 4 }} className='link'>
+          <Link
+            to={'/'}
+            style={{ '--i': 4 }}
+            className='link'
+            onClick={() => scrollToSection(aboutRef)}
+          >
             About
           </Link>
           <Link to={'/projects'} style={{ '--i': 5 }} className='link'>
@@ -45,6 +60,7 @@ const Navbar = () => {
 
 const Wrapper = styled.section`
   width: 100vw;
+  height: 5rem;
   display: flex;
   justify-content: center;
   background-color: var(--primary-900);
@@ -52,6 +68,8 @@ const Wrapper = styled.section`
   margin: 0 auto;
   overflow: hidden;
   z-index: 999;
+  position: fixed;
+  top: 0;
 
   /////////////////////////////////////////
   nav {
