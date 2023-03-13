@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { FaCss3Alt } from 'react-icons/fa'
 import { SiJavascript, SiMongodb } from 'react-icons/si'
 import { DiReact, DiNodejsSmall, DiPostgresql } from 'react-icons/di'
-import { MdDoubleArrow } from 'react-icons/md'
 import { GrMysql } from 'react-icons/gr'
 
 const Skills = () => {
@@ -14,7 +13,7 @@ const Skills = () => {
       <article className='content'>
         <div>
           <p>
-            <MdDoubleArrow /> <span>General</span>
+            🔥 <span>General</span>
           </p>
           <ul>
             <li>
@@ -27,7 +26,7 @@ const Skills = () => {
         </div>
         <div>
           <p>
-            <MdDoubleArrow /> <span>Frameworks</span>
+            🔥 <span>Frameworks</span>
           </p>
           <ul>
             <li>
@@ -40,7 +39,7 @@ const Skills = () => {
         </div>
         <div>
           <p>
-            <MdDoubleArrow /> <span>Database</span>
+            🔥 <span>Database</span>
           </p>
           <ul>
             <li>
@@ -65,6 +64,7 @@ const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   max-width: 60vw;
+  margin-bottom: 10rem;
 
   .content {
     gap: 2rem;

@@ -7,6 +7,7 @@ const AppContext = (props) => {
   const [showSidebar, setShowSidebar] = useState(false)
   const aboutRef = useRef(null)
   const heroRef = useRef(null)
+  const contactRef = useRef(null)
 
   const scrollToSection = (elementRef) => {
     window.scrollTo({
@@ -24,6 +25,7 @@ const AppContext = (props) => {
         setShowSidebar,
         aboutRef,
         heroRef,
+        contactRef,
         scrollToSection,
       }}
     >

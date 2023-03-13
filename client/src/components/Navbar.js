@@ -3,10 +3,19 @@ import styled from 'styled-components'
 import logo from '../assets/logo.png'
 import { CgCloseR } from 'react-icons/cg'
 import { useAppContext } from '../context'
+import { useLocation } from 'react-router-dom'
 
 const Navbar = () => {
-  const { showSidebar, setShowSidebar, scrollToSection, aboutRef, heroRef } =
-    useAppContext()
+  const {
+    showSidebar,
+    setShowSidebar,
+    scrollToSection,
+    aboutRef,
+    heroRef,
+    contactRef,
+  } = useAppContext()
+
+  const { pathname } = useLocation()
 
   return (
     <Wrapper>
@@ -29,20 +38,30 @@ const Navbar = () => {
           >
             Home
           </Link>
-          <Link
-            to={'/'}
-            style={{ '--i': 4 }}
-            className='link'
-            onClick={() => scrollToSection(aboutRef)}
-          >
-            About
-          </Link>
+
+          {pathname === '/' && (
+            <Link
+              to={'/'}
+              style={{ '--i': 4 }}
+              className='link'
+              onClick={() => scrollToSection(aboutRef)}
+            >
+              About
+            </Link>
+          )}
           <Link to={'/projects'} style={{ '--i': 5 }} className='link'>
             Projects
           </Link>
-          <Link to={'/contact'} style={{ '--i': 6 }} className='call-out'>
-            Contact
-          </Link>
+          {pathname === '/' && (
+            <Link
+              to={'/'}
+              style={{ '--i': 6 }}
+              className='call-out'
+              onClick={() => scrollToSection(contactRef)}
+            >
+              Contact
+            </Link>
+          )}
         </ul>
         <div
           className={'hamburger-container'}

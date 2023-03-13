@@ -1,14 +1,8 @@
 import { Outlet } from 'react-router-dom'
-import Navbar from '../components/Navbar'
+import { Navbar, Footer } from '../components/'
 import styled from 'styled-components'
 import { useEffect } from 'react'
-import {
-  FiGithub,
-  FiLinkedin,
-  FiInstagram,
-  FiFacebook,
-  FiLogIn,
-} from 'react-icons/fi'
+import { FiGithub, FiLinkedin, FiLogIn } from 'react-icons/fi'
 import { SiGmail } from 'react-icons/si'
 import { FaTelegramPlane } from 'react-icons/fa'
 import '../index.css'
@@ -38,16 +32,6 @@ const SharedLayout = () => {
               <FiGithub className='icon' />
             </a>
             <a
-              href='https://www.instagram.com'
-              target='_blank'
-              rel='noreferrer'
-            >
-              <FiInstagram className='icon' />
-            </a>
-            <a href='https://www.facebook.com' target='_blank' rel='noreferrer'>
-              <FiFacebook className='icon' />
-            </a>
-            <a
               href='https://www.linkedin.com/in/hung-bui-10a174264/'
               target='_blank'
               rel='noreferrer'
@@ -74,6 +58,7 @@ const SharedLayout = () => {
           </div>
         )}
       </section>
+      {!showIntro && <Footer />}
     </Wrapper>
   )
 }
@@ -98,7 +83,7 @@ const Wrapper = styled.section`
     position: fixed;
     /* top: 0; */
     bottom: 10rem;
-    left: calc((100vw - 90vw) / 2);
+    right: calc((100vw - 90vw) / 2);
     width: 10px;
     height: 100px;
     color: white;

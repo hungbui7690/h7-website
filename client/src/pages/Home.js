@@ -1,7 +1,14 @@
 import { useOutletContext } from 'react-router-dom'
 import Intro from './Intro'
 import styled from 'styled-components'
-import { FeaturedProjects, Hero, Sidebar, About, Skills } from '../components/'
+import {
+  FeaturedProjects,
+  Hero,
+  Sidebar,
+  About,
+  Skills,
+  Contact,
+} from '../components/'
 import { useAppContext } from '../context'
 
 const Home = () => {
@@ -17,6 +24,7 @@ const Home = () => {
         {showSidebar && <Sidebar />}
         <About />
         <Skills />
+        <Contact />
         <FeaturedProjects />
       </Wrapper>
     )

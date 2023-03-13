@@ -9,12 +9,12 @@ const Hero = () => {
   return (
     <Wrapper>
       <div className='section'>
-        <p className='title translate-up' style={{ '--i': 1 }}>
-          Hi, my name is
-        </p>
-        <h4 className='name translate-up' style={{ '--i': 2 }}>
+        <h2 className='name translate-up' style={{ '--i': 2 }}>
           Hung Thanh Bui
-        </h4>
+        </h2>
+        <p className='title translate-up' style={{ '--i': 1 }}>
+          Colorado / USA / Remote
+        </p>
         <p className='description translate-up' style={{ '--i': 3 }}>
           I use programming knowledge to build websites that meet the needs of
           clients.{' '}
@@ -38,9 +38,10 @@ const Wrapper = styled.section`
   align-items: center;
   justify-content: center;
   position: relative;
+  margin-bottom: 10rem;
 
   .section {
-    max-width: 50vw;
+    max-width: 60vw;
     color: white;
     /* animation: animate-section 5s linear forward; */
   }

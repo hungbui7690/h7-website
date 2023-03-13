@@ -8,21 +8,22 @@ const About = () => {
 
   return (
     <Wrapper ref={aboutRef}>
-      <h3 className='title'>About Myself</h3>
+      <h2 className='title'>About Myself</h2>
       <div className='content'>
         <article className='info'>
           <p>
-            Hi there! My name is Hung and I love to create websites. I have this
-            interest for just some years as I saw some beautiful websites that
-            was created with just HTML, CSS & Javascript.{' '}
+            Hi there! My name is <span>Hung</span> and I love to create
+            websites. I have this interest for just some years as I saw some
+            beautiful websites that was created with just HTML, CSS &
+            Javascript.{' '}
           </p>
           <p>
             I graduated from <span>Aptech Approtrain</span> (a bootcamp of
             India) in VietNam. After that, I had a chance to work for a Hongkong
-            company as a <span>Maximo Software Engineer</span> for{' '}
-            <span>6 years</span> [Maximo is an asset management software of
-            IBM]. I customized that software based on the needs of our clients,
-            which are Gambling companies in Macau){' '}
+            company as a <span>Maximo Specialist</span> for <span>6 years</span>{' '}
+            [Maximo is an asset management software of IBM]. I customized that
+            software based on the needs of our clients, which mostly are
+            Gambling companies in Macau){' '}
           </p>
           <p>
             When I moved to USA in 2016, I studied as Electrical Engineer in
@@ -45,7 +46,7 @@ const Wrapper = styled.section`
   .content {
     display: flex;
     flex-direction: column;
-    max-width: 50vw;
+    max-width: 60vw;
   }
   img {
     border-radius: 5px;
